@@ -65,12 +65,13 @@ func main() {
 	close(sem)
 
 	totalTime := time.Since(startTime)
+	var totalTimeSeconds float64
 
 	fmt.Println("\nFinal Report:")
 	fmt.Printf("URL: %s\n", *url)
 	totalTimeMinutes := float64(totalTime) / float64(time.Minute)
 	if totalTimeMinutes < 1 {
-		totalTimeSeconds := float64(totalTime) / float64(time.Second)
+		totalTimeSeconds = float64(totalTime) / float64(time.Second)
 		fmt.Printf("Total spent time on the execution: %.2f seconds\n", totalTimeSeconds)
 	} else {
 		fmt.Printf("Total spent time on the execution: %.2f minutes\n", totalTimeMinutes)
